@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  
+      <!-- Generate/Load robot description file -->
+  <include file="$(find gripx_control)/launch/gripx_control.launch"/>
+
+
+	<!-- Load the SRDF and other configuration files -->
+  <include file="$(find gripx_moveit_config)/launch/planning_context.launch"/>
+
+   <!-- The planning and execution components of MoveIt! configured to 
+   publish the current configuration of the robot (simulated or real) 
+   and the current state of the world as seen by the planner -->
+  <include file="$(find gripx_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+
+</launch>

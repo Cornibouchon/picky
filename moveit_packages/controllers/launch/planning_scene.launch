@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="planning_scene" pkg="moveit_packages" type="planning_scene" respawn="false" output="screen">
+  </node>
+
+</launch>

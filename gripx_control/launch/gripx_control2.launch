@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <!-- TODO -->
+  <!-- Load the joint state controller file in the namespace ns to the parameter server not yet working-->
+  <!-- <rosparam command="load"
+    file="$(find gripx_control)/config/kinova_joint_state.yaml"
+    ns="gripx_joint_state_controller" /> -->
+
+    <!-- Load the position controller file in the namespace ns to the parameter server-->
+    <rosparam command="load"
+      file="$(find gripx_control)/config/gripx_control.yaml"/>
+
+      <!-- Load the controllers from ros -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/"
+        args="arm_position_controller
+              joint_position_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/joint_states" />
+  </node> -->
+
+
+
+    <!-- Lad Rviz Config -->
+    <arg name="gui" default="true" />
+    <arg name="rvizconfig" default="$(find gripx_description)/rviz/urdf.rviz" />
+        <!-- Launch Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+    
+</launch>
