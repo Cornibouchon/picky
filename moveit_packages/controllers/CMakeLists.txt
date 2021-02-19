@@ -9,6 +9,12 @@ target_link_libraries(position_control ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_executable(planning_scene src/planning_scene.cpp)
 target_link_libraries(planning_scene ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
+add_executable(planning_scene2 src/planning_scene2.cpp)
+target_link_libraries(planning_scene2 ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(roll_motion_kinova src/roll_motion_kinova.cpp)
+target_link_libraries(roll_motion_kinova ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
 add_executable(roll_motion 
 	src/roll_motion.cpp
 	src/utils.cpp )

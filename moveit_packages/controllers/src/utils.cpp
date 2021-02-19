@@ -31,7 +31,6 @@ std::vector<geometry_msgs::Pose> n_interpolate_rpy(	int steps, double roll, doub
     for(int i=0; i<=steps; i++){
         start_pose = pose_rotation(roll/(steps+1), pitch/(steps+1), yaw/(steps+1), start_pose);
         start_pose = pose_offset_cart(-x_offset/(steps+1),-y_offset/(steps+1), -z_offset/steps,start_pose);
-	    start_pose.position.z += z_offset/steps;
 	    waypoints.push_back(start_pose);
     }
     return waypoints;
